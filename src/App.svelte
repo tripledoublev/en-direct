@@ -3,6 +3,7 @@
   import { tweened } from "svelte/motion";
   import Video from "./Video.svelte";
   import videoCameras from "./video_cameras";
+  import Scrolling from "./Scrolling.svelte";
 
   const intervalDuration = 5000; 
   const preloadTime = intervalDuration * 0.75;
@@ -54,3 +55,14 @@
 
 <Video url={videoUrls[currentVideoIndex]} description={`Video ${currentVideoIndex + 1}`} visible={currentVideoVisible} />
 <Video url={videoUrls[nextVideoIndex]} description={`Video ${nextVideoIndex + 1}`} visible={nextVideoVisible} />
+<div class='bottom'>
+  <Scrolling />
+</div>
+
+<style>
+ .bottom {
+  position: absolute;
+  bottom:0;
+  left:0;
+ }
+</style>
