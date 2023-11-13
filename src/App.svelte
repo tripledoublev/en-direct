@@ -4,7 +4,7 @@
   import Video from "./Video.svelte";
   import videoCameras from "./video_cameras";
 
-  const intervalDuration = 2222; // change this to the initial timer duration
+  const intervalDuration = 5000; 
   const preloadTime = intervalDuration * 0.75;
   const fadeTime = intervalDuration * 0.99;
 
