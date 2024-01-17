@@ -55,9 +55,11 @@
 
 <Video url={videoUrls[currentVideoIndex]} description={`Video ${currentVideoIndex + 1}`} visible={currentVideoVisible} />
 <Video url={videoUrls[nextVideoIndex]} description={`Video ${nextVideoIndex + 1}`} visible={nextVideoVisible} />
-<div class='bottom'>
+<!--
+  <div class='bottom'>
   <Scrolling />
 </div>
+-->
 
 <style>
  .bottom {
