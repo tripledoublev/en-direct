@@ -1,9 +1,8 @@
 <script>
-  import { onMount, tick } from "svelte";
-  import { tweened } from "svelte/motion";
+  import { onMount } from "svelte";
   import Video from "./Video.svelte";
   import videoCameras from "./video_cameras";
-  import Scrolling from "./Scrolling.svelte";
+  import Typewriter from "./Typewriter.svelte";
 
   const intervalDuration = 5000; 
   const preloadTime = intervalDuration * 0.75;
@@ -43,18 +42,12 @@
     };
   });
 
-  // Make sure the videos are loaded in the DOM before playing
-  $: loaded = false;
-  onMount(() => {
-    tick().then(() => {
-      loaded = true;
-    });
-  });
 </script>
 
 
 <Video url={videoUrls[currentVideoIndex]} description={`Video ${currentVideoIndex + 1}`} visible={currentVideoVisible} />
 <Video url={videoUrls[nextVideoIndex]} description={`Video ${nextVideoIndex + 1}`} visible={nextVideoVisible} />
+<Typewriter />
 <!--
   <div class='bottom'>
   <Scrolling />
@@ -66,5 +59,14 @@
   position: absolute;
   bottom:0;
   left:0;
+ }
+ 
+ :global(.typewriter) {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 200;
+   pointer-events: none;
  }
 </style>
