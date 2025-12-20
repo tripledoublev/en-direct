@@ -5,7 +5,7 @@ Live video feed viewer for Montreal traffic cameras with location metadata and d
 ## Features
 
 - Location metadata display
-- Dynamic text overlay for mobile view
+- Dynamic text overlay with responsive design
 - Offline camera detection
 - Configurable video rotation intervals
 
