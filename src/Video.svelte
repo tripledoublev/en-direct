@@ -171,7 +171,7 @@
       cursor: pointer;
     }
 
-    @media (max-width: 769px) {
+    @media (max-width: 969px) {
       video {
         left: 39%;
         min-height: 100vh;
