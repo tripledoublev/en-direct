@@ -4,6 +4,7 @@
   import videoCameras from "./video_cameras";
   import Notation from "./Notation.svelte";
   import Typewriter from "./Typewriter.svelte";
+  import { updateMetaTags } from "./metaTags";
 
   // Check URL params for interval duration (in seconds) and specific index
   const urlParams = new URLSearchParams(window.location.search);
@@ -74,6 +75,17 @@
   $: totalAvailableVideos = availableCameras.length;
   $: currentVideoUrl = videoUrls[currentVideoIndex] || null;
   $: nextVideoUrl = videoUrls[nextVideoIndex] || null;
+  
+  // Update meta tags when camera changes (for browser tabs - social crawlers need initial HTML)
+  $: if (currentVideoDescription && specificIndex !== null) {
+    // Find the original index in the full camera array
+    const originalIndex = videoCameras.findIndex(cam => 
+      cam.url === availableCameras[currentVideoIndex]?.url
+    );
+    if (originalIndex !== -1) {
+      updateMetaTags(originalIndex, currentVideoDescription);
+    }
+  }
 
   // Handle offline status updates from Video components
   function handleOfflineStatus(event) {
